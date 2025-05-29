@@ -1,0 +1,2049 @@
+body{
+  overflow: hidden;
+  background: skyblue;
+  
+}
+
+
+
+body.atmosphere{
+  animation-name: atmosphere;
+  animation-duration: 130s;
+  animation-fill-mode: forwards;
+}
+
+body.atmosphere2{
+  width: 100%;
+  height: 100%;
+  animation-name: atmosphere2;
+  animation-fill-mode: forwards;
+  animation-duration: 40s;
+}
+
+
+#l1{
+  height: 33.33333333333333%;
+  width: 33.33333333333333%;
+  position: absolute;
+  left: 0;
+}
+
+#l2{
+  height: 33.33333333333333%;
+  width: 33.33333333333333%;
+  position: absolute;
+  left: 119.9px;
+}
+
+#l3{
+  height: 33.33333333333333%;
+  width: 33.33333333333333%;
+  position: absolute;
+  left: 240px;
+}
+
+#l1,#l2,#l3,#d1{
+  position: absolute;
+  top: 100px;
+}
+
+#d1, #d2, #d3, #d4{
+  width: 30%;
+  top: 205px;
+  display: block;
+  z-index: 1;
+  display: none;
+  z-index: 0;
+}
+
+#d1{
+  position: absolute;
+  left: -39px;
+  top: 210px;
+  
+}
+#d2{
+  position: absolute;
+  top: 162px;
+  left: -20px;
+  
+}
+
+#d3{
+  position: absolute;
+  top: 170px;
+  left: -10px;
+  transform: scaleY(0.8);
+}
+
+#d4{
+  position: absolute;
+  top: 170px;
+  left: -80px;
+  height: 100px;
+  width: 200px;
+  transform: rotate(0 deg);
+  transition: 1s;
+}
+
+#d1.die, #d2.die, #d3.die {
+  transform: rotate(-50deg);
+  left: -30px;
+}
+
+#d4.die{
+transform: rotate(-50deg);
+  left: -0px;
+}
+
+#blood{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 10px;
+  top: 170px;
+  z-index: 4;
+  opacity: 0;
+}
+
+#drawHold1{
+  height: 350px;
+  width: 306.5px;
+  background-color: lime;
+  border-radius: 30px;
+  position: absolute;
+  z-index: 1;
+  left: 7%;
+  display: block;
+}
+
+#d1Draw, #d2Draw, #d3Draw{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 3;
+  border: 1px solid red;
+  display: block;
+}
+
+#d1Draw{
+  left: 27px;
+  top: 150px;
+}
+
+#d2Draw{
+  left: 129px;
+  top: 150px;
+}
+
+#d3Draw{
+  left: 230px;
+  top: 150px;
+}
+
+#d4Draw{
+  position: absolute;
+  left: 40px;
+  top: 70px;
+  border: 1px solid blueviolet ;
+  height: 300px;
+  width: 275px;
+  z-index: 4;
+  border-radius: 10px;
+  background: yellow;
+  opacity: 0;
+  transition: 1.5s;
+  pointer-events: none;
+}
+
+button:not(#credClue, #credEnter,#xButton){
+  background-image: linear-gradient(to right, #0FAA50, #8BA32A);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px; 
+}
+
+#drawBut{
+  position: absolute;
+  top: 330px;
+  left: 125px;
+  z-index: 3;
+}
+
+#outId{
+  position: absolute;
+  z-index: 3;
+  left: 150px;
+  top: 300px;
+  pointer-events: none;
+}
+
+#draw{
+  
+}
+
+#jake, #joross, #jeb{
+  position: absolute;
+  top: 100px;
+  z-index: 3;
+}
+
+#jake{
+  left: 33px;
+}
+#joross{
+  left: 135px;
+}
+
+#jeb{
+  left: 250px;
+}
+
+#output4{
+  animation: rainbow 3s infinite;
+  animation-name: output4An;
+  z-index: 8898986;
+  opacity: 1;
+  transition: 1.5s;
+  pointer-events: none;
+  left: 145px;
+  top: 350px;
+  position: absolute;
+}
+@keyframes output4An {
+  0% { color: #fc0303; }
+  17% { color: #45f52a; }
+  34% { color: #2a7bf5; }
+  51% { color: #2af5e4; }
+  68% { color: #c92af5; }
+  85% { color: #f5dd2a; }
+  100% { color: #66655d; }
+}
+
+#output4.show, #d4Draw.show{
+  opacity: 1;
+}
+
+#output4.hide{
+  opacity: 0;
+}
+
+#drawNone,#name{
+  opacity: 1;
+  transition: 1s;
+}
+
+#drawNone.hide, #name.hide{
+  opacity: 0;
+}
+
+
+
+/*not used*/
+#e1{
+  height: 50px;
+  width: 35px;
+  position: absolute;
+  top: 270px;
+  left: 350px;
+  z-index: 2;
+  display: none;
+}
+
+@keyframes smoothJump {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-80px); }
+  60%  { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+#d1.jump, #d2.jump ,#d3.jump, #d4.jump ,#d4Hitbox.jump, #d1Stop.jump, #d2Stop.jump, #d3Stop.jump, #d4Stop.jump {
+  animation: smoothJump 0.6s ease-in-out;
+}
+
+
+#d4Hitbox {
+  position: absolute;
+  top: 210px;
+  left: 20px;
+  width: 40px;
+  height: 60px;
+  background: blue;
+  z-index: 2;
+  opacity: 0;
+  border-radius: 30px;
+  display: block;
+}
+
+#ePic{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  pointer-events: none;
+  transition: 1.5s;
+  display: none;
+  z-index: 100;
+}
+
+#ePic.show{
+  left: 0%;
+}
+
+#ePic.show2{
+  display: block;
+}
+
+/*Cloud & Sun Css*/
+    
+
+    .cloud {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(5, 10px);
+      grid-template-rows: repeat(3, 10px);
+      gap: 1px;
+      z-index: -1;
+    }
+
+    .pixel {
+      width: 10px;
+      height: 10px;
+      background: white;
+      z-index: -1;
+      transition: 10s;
+    }
+
+    .pixel.transparent {
+      background: transparent;
+    }
+  
+
+/*
+#gun{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 360px;
+  top: 183px;
+  transform: rotate(-50deg);
+  transition: 3s;
+  opacity: 1;
+  animation-name: gunAni;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  z-index: 1000;
+}
+
+#gun.give, #shiny.give{
+  animation-name: gunAnim;
+  animation-fill-mode: forwards;
+  left: 0;
+}
+*/
+
+#gun{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 360px;
+  top: 183px;
+  transform: rotate(-50deg);
+  transition: 3s;
+  display: none;
+}
+
+#gun.give, #shiny.give{
+  animation-fill-mode: forwards;
+  animation-name: haha;
+  animation-duration: 2s;
+}
+
+@keyframes haha{
+  0%{left: 360px;}
+  100%{left: 0px;}
+}
+
+
+#gunSp{
+  position: absolute;
+  z-index: 300;
+}
+
+
+
+.gun{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 360px;
+  top: 183px;
+  transform: rotate(-50deg);
+  transition: 1s;
+  opacity: 0;
+  
+}
+
+#shiny{
+ height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 360px;
+  top: 183px;
+  z-index: 1;
+  opacity: 0.7;
+  transition: 2s;
+  display: none;
+}
+
+
+
+#gunItem{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 10px;
+  top: 205px;
+  z-index: 1;
+  transition: 0.5s;
+  display: none;
+  transform: rotate(0deg);
+}
+
+#gunItem.jump{
+  animation-name: gunJump;
+  animation-duration: 0.6s;
+}
+
+@keyframes gunJump{
+0%   { transform: translateY(0); }
+  30%  { transform: translateY(-80px); }
+  60%  { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+#gunItem.fire{
+  transform: rotate(-30deg);
+}
+
+
+
+
+#f{
+  color: red;
+  position: fixed;
+  z-index: 100;
+  left: 10px;
+  top: 400px;
+  display: none;
+}
+
+#explode{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: yellow;
+  border-radius: 50%;
+  pointer-events: none;
+  left: 100px;
+  top: 225px;
+  transition: 0.3s;
+  z-index:1;
+  opacity: 0;
+}
+
+#explode.show{
+ opacity: 1;
+}
+
+#bullet{
+  height: 1000px;
+  height: 10px;
+  width: 30px;
+  background: white;
+  position: absolute;
+  z-index: 3;
+  border: 3px solid whitesmoke;
+  top: 228px;
+  left: 100px;
+  opacity: 0;
+}
+
+
+/*ROCKS*/
+  
+
+    .rock {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(4, 10px);
+      grid-template-rows: repeat(4, 10px);
+      gap: 1px;
+      z-index: 0;
+    }
+
+    .rock-pixel {
+      width: 10px;
+      height: 10px;
+      background: gray;
+    }
+
+    .rock-pixel.transparent {
+      background: transparent;
+    }
+    
+#overlay{
+  width: 1px;
+  height: 1px;
+}
+
+#endless{
+  font-family: 'Games', sans-serif;
+  position: absolute;
+  z-index: 3;
+  color: white;
+  background: gray;
+  opacity: 0.6;
+  top: 0;
+  right: 0;
+}
+
+
+
+
+#sun {
+      width: 50px;
+      height: 50px;
+      background: gold;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 5px orange;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      z-index: -3;
+      transition: 20s;
+    }
+    
+#moon {
+  width: 50px;
+  height: 50px;
+  background: #d9d9d9; /* Light gray */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px #808080; /* Darker gray shadow */
+  position: absolute;
+  top: 260px;
+  left: 30px;
+  z-index: -1;
+  opacity: 0;
+}
+
+#moon.start{
+  animation-name: moonUp;
+  animation-duration: 30s;
+  animation-fill-mode: forwards;
+}
+
+#sun.start{
+  animation-name: sunDown;
+  animation-duration: 120s;
+  animation-fill-mode: forwards;
+}
+
+#sun.back{
+  animation-name: sunBackAni;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sunBackAni{
+  0%{opacity: 0; top: 270px;}
+  100%{opacity: 1; top: 30px;}
+}
+
+@keyframes sunDown {
+  0% {
+    
+  }
+  100% {
+    top: 270px;
+    opacity: 0; /* Fade out sun */
+  }
+}
+
+@keyframes moonUp {
+  0% {
+    top: 260px;
+    opacity: 0;
+  }
+  100% {
+    top: 30px;
+    opacity: 1; /* Fade in moon */
+  }
+}
+
+
+@keyframes atmosphere2{
+0% {
+    background-image: linear-gradient(to bottom, #041A40, #041A40); /* Start with deep night blue */
+  }
+  25% {
+    background-image: linear-gradient(to bottom, #041A40, #192a56); /* Darker blue gradient */
+  }
+  50% {
+    background-image: linear-gradient(to bottom, #041A40, #294172); /* Slightly lighter gradient */
+  }
+  75% {
+    background-image: linear-gradient(to bottom, #041A40, #004d33); /* Greenish gradient at the bottom */
+  }
+  100% {
+    background-image: linear-gradient(to bottom, #041A40, #004d33); /* Maintain greenish gradient */
+  }
+}
+
+
+
+@keyframes atmosphere {
+  0% {
+    background-color: skyblue; /* Day sky blue */
+  }
+  25% {
+    background-color: #32CAFF; /* Light blue */
+  }
+  50% {
+    background-color: #FFB74D; /* Sunset orange */
+  }
+  75% {
+    background-color: #3F51B5; /* Twilight blue */
+  }
+  100% {
+    background-color: #041A40; /* Night sky blue */
+  }
+}
+
+
+
+
+#grass{
+  background:green;
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  left: 0;
+  top: 255px;
+  z-index: -1;
+}
+
+#land{
+  background:brown;
+  width: 100%;
+  height: 400px;
+  position: fixed;
+  top: 280px;
+  left: 0;
+}
+
+#t{
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: -15px;
+  background: black;
+  opacity: 0.6;
+  color: red;
+}
+
+
+
+
+.star {
+  font-size: 15px;
+  color: white;
+  text-shadow: 0 0 10px white, 0 0 20px white; /* Glow effect */
+  position: absolute;
+  z-index: 100;
+  
+  opacity: 0;
+  z-index: -2;
+  transition: 20s;
+}
+
+.star.show{
+animation-name: starAni;
+animation-duration: 120s;
+animation-fill-mode: forwards
+}
+
+@keyframes starAni{
+  0%{opacity:0;}
+  100%{opacity: 1;}
+}
+
+
+.star.starAniRemove{
+  animation-name: starAniRemoveAni;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes starAniRemoveAni {
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
+
+
+body.atmosphere3{
+  animation-name: atmosphere3Ani;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes atmosphere3Ani {
+  0% {
+    z-index: -1;
+    background-image: linear-gradient(to bottom, #041A40, #004d33, transparent); /* Midnight gradient */
+    background-color: transparent;
+  }
+  25% {
+    background-color: #3F51B5; /* Twilight blue */
+    background-image: linear-gradient(to bottom, transparent, #004d33);
+  }
+  50% {
+    background-color: #FFB74D; /* Sunset orange */
+    background-image: linear-gradient(to bottom, transparent, transparent);
+  }
+  75% {
+    background-color: #32CAFF; /* Light blue */
+    background-image: none;
+  }
+  100% {
+    background-color: skyblue; /* Day sky blue */
+    background-image: none;
+  }
+}
+
+
+
+#error{
+  color: red;
+  position: absolute;
+  z-index: 100;
+  text-align: center;
+  display: none;
+}
+
+#fix{
+  position: absolute;
+  background: greenyellow;
+  display: none;
+}
+
+#moon.bye1{
+  position: absolute;
+  animation-fill-mode: forwards;
+  animation-name: moonByeAni;
+  animation-duration: 20s;
+}
+
+@keyframes moonByeAni{
+ 0% { transform: translateY(-225px);
+opacity: 1;
+   
+ }
+    100% { transform: translateY(100px);
+    opacity: 0;}
+}
+
+
+#shield{
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  left: 360px;
+  top: 195px;
+  transform: rotate(-50deg);
+  transition: 3s;
+  display: none;
+}
+
+#shiny2{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 360px;
+  top: 183px;
+  z-index: 1;
+  opacity: 0.7;
+  transition: 2s;
+  display: none;
+}
+
+#shield.give, #shiny2.give{
+  animation-fill-mode: forwards;
+  animation-name: haha;
+  animation-duration: 2s;
+}
+
+
+#shieldItem{
+  position: absolute;
+  top: 215px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
+  
+  z-index: 2;
+  transition: 0.5s;
+  
+  
+  display: none;
+  opacity: 0.3;
+}
+
+#shieldItem.jump{
+  animation-name: gunJump;
+  animation-duration: 0.6s;
+}
+
+
+@keyframes gunJump{
+0%   { transform: translateY(0); }
+  30%  { transform: translateY(-80px); }
+  60%  { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+
+#cred{
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 50px;
+  animation-name: output4An;
+  animation-duration: 5s;
+  color: green;
+  font-size: 25px;
+  left: 17px;
+  bottom: -30px;
+  pointer-events: none;
+}
+
+#jSq{
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+}
+
+@keyframes output4An {
+  0% { color: #fc0303; }
+  17% { color: #45f52a; }
+  34% { color: #2a7bf5; }
+  51% { color: #2af5e4; }
+  68% { color: #c92af5; }
+  85% { color: #f5dd2a; }
+  100% { color: #66655d; }
+}
+
+
+#credits {
+  display: none; /* Initially hidden */
+  position: absolute; /* Allows smooth scrolling */
+  top: 100px; /* Adjust vertical position as needed */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+#invBtn{
+  position: absolute;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  cursor: pointer;
+  opacity: 0;
+  display: none;
+}
+
+
+#e2{
+  height: 50px;
+  width: 35px;
+  position: absolute;
+  top: 205px;
+  left: 400px;
+  z-index: 2;
+  display: none;
+  
+}
+
+.Go{
+  animation-name: e2Go;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+}
+
+@keyframes e2Go{
+  0%{left: 400px;}
+  100%{left: 325px;}
+}
+
+#gunE {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 400px;
+  top: 217px;
+  z-index: 2;
+  transition: 0.5s;
+  transform: rotate(0deg) scaleX(-1); /* Rotate then flip */
+  display: none;
+
+}
+
+#gunE.fire {
+  transform: rotate(30deg) scaleX(-1); /* Rotate then flip */
+}
+
+#explodeE{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  pointer-events: none;
+  left: 400px;
+  top: 225px;
+  transition: 0.3s;
+  z-index:2;
+  opacity: 0;
+}
+
+#explodeE.show{
+ opacity: 1;
+}
+
+#bulletE{
+  height: 5px;
+  width: 15px;
+  background: red;
+  position: absolute;
+  z-index: 3;
+  border: 3px solid whitesmoke;
+  top: 228px;
+  left: 30px;
+  opacity: 1;
+  animation-name: e2Go;
+  display: none;
+}
+
+.bulletEAdjust{
+  right: 300px;
+  background: yellow;
+}
+
+#newBulletE{
+  opacity: 0.2;
+}
+
+
+#boots{
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  left: 360px;
+  top: 195px;
+  transition: 3s;
+  display: none;
+}
+
+#boots.give, #shiny3.give{
+  animation-fill-mode: forwards;
+  animation-name: haha;
+  animation-duration: 2s;
+}
+
+#shiny3{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 360px;
+  top: 183px;
+  z-index: 1;
+  opacity: 0.7;
+  transition: 2s;
+  display: none;
+
+}
+
+
+#bootsItem{
+  position: absolute;
+  top: 250px;
+  left: 5px;
+  width: 25px;
+  height: 23px;
+  
+  z-index: 2;
+  transition: 0.5s;
+  
+  
+  display: none;
+  opacity: 1;
+  
+  transform: scaleX(-1);
+}
+
+#bootsItem2{
+  position: absolute;
+  top: 250px;
+  left: 33px;
+  width: 25px;
+  height: 23px;
+  
+  z-index: 2;
+  transition: 0.5s;
+  
+  
+  display: none;
+  opacity: 1;
+  
+  transform: scaleX(-1);
+}
+
+#j{
+  position: fixed;
+  z-index: 100;
+  left: 10px;
+  top: 465px;
+  display: block;
+  color: cyan;
+  display: none;
+}
+
+
+#bootsItem.jump, #bootsItem2.jump{
+  animation-name: gunJump;
+  animation-duration: 0.6s;
+}
+
+
+@keyframes gunJump{
+0%   { transform: translateY(0); }
+  30%  { transform: translateY(-80px); }
+  60%  { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+.jumpSuper{
+  animation-name: bootsJumpSuper;
+  animation-duration: 1s;
+}
+
+
+@keyframes bootsJumpSuper{
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-140px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+
+
+
+#raining{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  display: none;
+  transition: 30s;
+}
+
+#raining.rainingShow{
+  opacity: 1;
+}
+
+
+body.atmosphere4{
+  animation-name: atmosphere4Ani;
+  animation-duration: 30s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes atmosphere4Ani {
+  0% {
+    background-color: skyblue; /* Day sky blue */
+  }
+  100%{
+    background-color: gray; /* Day sky blue */
+  }
+}
+
+
+
+
+
+#credBorder{
+  position: absolute;
+  z-index: 5;
+  background: lightcyan;
+  left: 25.4px;
+  top: 48.4px;
+  border-radius: 30px;
+  height: 350px;
+  width: 306.5px;
+  pointer-events: none;
+}
+
+#enter{
+  position: absolute;
+  z-index: 7;
+  color: darkorange;
+  top: 60px;
+  left: 39px;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#credInput{
+  position: absolute;
+  z-index: 10;
+  top: 20%;
+  left: 17%;
+
+
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 10px;
+  transition: border-color 0.3s ease
+}
+
+#credClue{
+position: absolute;
+  z-index: 10;
+  border-radius: 100px;
+  right: 80px;
+  top: 150px;
+  background: greenyellow;
+  
+}
+
+#credChatBox{
+  position: absolute;
+  z-index: 7;
+  width: 50%;
+  height: 50%;
+  top: 100px;
+  left: 35%;
+  opacity: 1;
+  transform: scaleY(0);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+#credChatBox.credChatBoxShow{
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+#codeIns{
+  position: absolute;
+  z-index: 7;
+  right: 80px;
+  top: 240px;
+  transition: 1s;
+  opacity: 0;
+}
+
+#credEnter{
+  position: absolute;
+  z-index: 7;
+  top: 240px;
+  opacity: 1;
+  left: 50px;
+  width: 70px;
+  background: seagreen;
+}
+
+#xButton{
+  position: absolute;
+  z-index: 7;
+  top: 240px;
+  opacity: 1;
+  right: 40px;
+  width: 30px;
+  background: springgreen;
+  top: 60px;
+  border-radius: 10px;
+}
+
+#credShow{
+  display: none;
+}
+
+#incorrectCred{
+  z-index: 10;
+  position: absolute;
+  color: white;
+  background: red;
+  border-radius: 5px;
+  top: 174px;
+  left: 61px;
+  opacity: 0;
+}
+
+
+
+
+.pixel.pixelRain {
+      background: blue;
+      z-index: 0;
+    }
+    
+
+/*ATMOSPHERE 5*/
+body.atmosphere5{
+  animation-name: atmosphere5Ani;
+  animation-duration: 30s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes atmosphere5Ani {
+0% {
+    background-color: gray; /* Day sky blue */
+  }
+  25% {
+    background-color: gray; /* Light blue */
+  }
+  50% {
+    background-color: #FFB74D; /* Sunset orange */
+  }
+  75% {
+    background-color: #3F51B5; /* Twilight blue */
+  }
+  100% {
+    background-color: #041A40; /* Night sky blue */
+  }
+}
+
+#moon2 {
+  width: 50px;
+  height: 50px;
+  background: #d9d9d9; /* Light gray */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px #808080; /* Darker gray shadow */
+  position: absolute;
+  top: 260px;
+  left: 30px;
+  z-index: 5;
+  opacity: 0;
+}
+
+#moon2.start2{
+  animation-name: moonUp2;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moonUp2 {
+  0% {
+    top: 260px;
+    opacity: 0;
+  }
+  100% {
+    top: 30px;
+    opacity: 1; /* Fade in moon */
+  }
+}
+
+
+/*ATMOSPHERE 6*/
+
+
+
+
+
+
+#bloodMoon{
+  width: 0px;
+  height: 0px;
+  background: red; /* Light gray */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px black;
+  position: absolute;
+  top: 27px;
+  left: 50px;
+  z-index: 6;
+  transition: 2.5s;
+  opacity: 0;
+}
+
+
+#bloodMoon.Go2 {
+  width: 50px;
+  height: 50px;
+  background: red; /* Light gray */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px black;
+  z-index: 6;
+  opacity: 1;
+  top: 50px;
+  position: fixed;
+  left: 30px;
+}
+
+
+#boss1Half{
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 0;
+  top: -12px;
+  clip-path: inset(0 0 50% 0); /* Clips the right half */
+  z-index:3;
+  opacity: 1;
+  display: none;
+}
+
+
+
+#boss1{
+  position: absolute;
+  z-index: 2;
+  width: 70px;
+  height: 70px;
+  left: 70px;
+  top: 6px;
+  border-radius: 30px;
+  opacity: 0;
+  transition: 2.5s;
+  
+}
+
+
+#boss1.Go{
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-name: boss1GoAni;
+}
+
+@keyframes boss1GoAni{
+  0%{
+  position: absolute;
+  z-index: 2;
+  width: 70px;
+  height: 70px;
+  left: 70px;
+  top: 6px;
+  border-radius: 30px;
+  opacity: 1;
+  }
+  70%{
+  position: absolute;
+  z-index: 2;
+  width: 70px;
+  height: 70px;
+  left: 22px;
+  top: 6px;
+  border-radius: 30px;
+  opacity: 1;
+  }
+  100%{
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 0;
+  top: -12px;
+  opacity: 1;
+  }
+}
+
+#eat{
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 0;
+}
+
+#eat.Go{
+  animation-fill-mode: forwards;
+  animation-duration: 4s;
+  animation-name: boss1Eat;
+}
+
+@keyframes boss1Eat{
+  0%{
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 0;
+  }
+  50%{
+    position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 1;
+  }
+  100%{
+  position: absolute;
+  z-index: 2;
+  width: 150px;
+  height: 120px;
+  left: -15px;
+  top: 10px;
+  opacity: 1;
+  }
+}
+
+/*EATING*/
+#eating{
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 0;
+}
+
+#eating.Go{
+  animation-fill-mode: forwards;
+  animation-duration: 2.5s;
+  animation-name: boss1Eating;
+}
+
+@keyframes boss1Eating{
+  0%{
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 0;
+  }
+  50%{
+    position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 1;
+  }
+  100%{
+  position: absolute;
+  z-index: 2;
+  width: 150px;
+  height: 120px;
+  left: -15px;
+  top: -10px;
+  opacity: 1;
+  }
+}
+
+#moon2.eated{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  transition: 5s;
+  left: 55px;
+  top: 50px;
+}
+
+#eating2{
+  position: absolute;
+  z-index:11;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  display: none;
+}
+
+#eatDone{
+  position: absolute;
+  z-index:11;
+  width: 130px;
+  height: 130px;
+  left: -6px;
+  top: -20px;
+  transition: 2.5s;
+  opacity: 1;
+  display: none
+}
+
+
+
+/*
+#eatDone.Go{
+  animation-fill-mode: forwards;
+  animation-duration: 2.5s;
+  animation-name: eatDoneAni;
+}
+
+@keyframes eatDoneAni{
+  0%{
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 0;
+  }
+  50%{
+    position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  left: 5px;
+  top: 10px;
+  opacity: 1;
+  }
+  100%{
+  position: absolute;
+  z-index: 2;
+  width: 150px;
+  height: 120px;
+  left: -15px;
+  top: -10px;
+  opacity: 1;
+  }
+}
+
+*/
+
+body.atmosphere6{
+  animation-name: atmosphere6Ani;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes atmosphere6Ani {
+  0%{
+    background-color: black; 
+  }
+  50%{
+   background-color: darkred; 
+  }
+  100%{
+   background-color: orangered;
+  }
+}
+
+
+
+#sun.start2{
+  animation-name: sunDown2;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sunDown2 {
+  0% {
+    top: 30px;
+    opacity: 1; /* Fade out sun */
+  }
+  100% {
+    top: 270px;
+    opacity: 0; /* Fade out sun */
+  }
+}
+
+
+
+@keyframes boss1Hit {
+  0% { opacity: 1; }
+  20% { opacity: 0; }
+  25% { opacity: 1; }
+  45% { opacity: 0; }
+  50% { opacity: 1; }
+  70% { opacity: 0; }
+  75% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.boss1Hit {
+  animation-name: boss1Hit;
+  animation-duration: 1s;/* Adjust duration and steps as needed */
+  
+}
+
+#hpDisplay {
+  position: absolute;
+  z-index: 100;
+  font-size: 2em;
+  color: rebeccapurple;
+  top: 30px;
+  left: 150px;
+  border: 1px solid;
+  background: black;
+  display: none;
+}
+
+#hp-hearts {
+  /* Style the hearts as needed */
+}
+
+#bossHp{
+  position: absolute;
+  z-index: 100;
+  top: 25px;
+  left: 87px;
+  display: none;
+}
+
+
+
+
+
+#d1Stop, #d2Stop, #d3Stop, #d4Stop{
+  width: 30%;
+  top: 205px;
+  z-index: 1;
+  
+  display: none;
+}
+
+#d1Stop{
+  position: absolute;
+  left: -39px;
+  top: 210px;
+  
+}
+#d2Stop{
+  position: absolute;
+  top: 162px;
+  left: -20px;
+  
+}
+
+#d3Stop{
+  position: absolute;
+  top: 170px;
+  left: -10px;
+}
+
+#d4Stop{
+  position: absolute;
+  top: 170px;
+  left: -80px;
+  height: 100px;
+  width: 200px;
+  transform: rotate(0 deg);
+  transition: 1s;
+}
+
+
+
+#boss1P1{
+  position: absolute;
+  z-index: 0;
+  width: 150px;
+  height: 150px;
+  
+  
+  left: 250px;
+  top: 129.5px;
+
+  opacity: 0;
+  transition: 2s;
+  
+}
+
+#boss1P1.show{
+  opacity: 1;
+  
+}
+
+
+#boss1P1.talkAni, #d1Stop.talkAni, #d2Stop.talkAni, #d3Stop.talkAni, #d4Stop.talkAni{
+animation-name: talkAni;
+animation-duration: 1.1s;
+}
+
+
+@keyframes talkAni{
+  0%{transform: translateY(-15px); }
+  100%{transform: translateY(0);}
+}
+
+#boss1P1.talkAni2, #d1Stop.talkAni2, #d2Stop.talkAni2, #d3Stop.talkAni2, #d4Stop.talkAni2{
+animation-name: talkAni2;
+animation-duration: 1.1s;
+}
+
+
+@keyframes talkAni2{
+  0%{transform: translateY(-15px); }
+  100%{transform: translateY(0);}
+}
+
+
+#boss1P1.talkAni3, #d1Stop.talkAni3, #d2Stop.talkAni3, #d3Stop.talkAni3, #d4Stop.talkAni3{
+animation-name: talkAni3;
+animation-duration: 1.1s;
+}
+
+@keyframes talkAni3{
+  0%{transform: translateY(-15px); }
+  100%{transform: translateY(0);}
+}
+
+
+
+#boss1.hide, #boss1Half.hide{
+  transition: 2.5s;
+  opacity: 0;
+}
+
+#jakeM{
+  position: absolute;
+  z-index: 10;
+  animation-name: M;
+  color: white;
+  top: 110px;
+  opacity: 0;
+  
+}
+
+#bossM1{
+  position: absolute;
+  z-index: 10;
+  color: black;
+  left: 295px;
+  top: 80px;
+  opacity: 0;
+  
+}
+
+
+
+#jakeM.M, #bossM1.M ,#bossM2.M, #bossM3.M {
+  animation-name: M;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes M{
+  0%{opacity: 1;}
+  80%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
+#bossM4.M, #bossM5.M{
+  animation-name: M;
+  animation-duration: 3s;
+}
+
+
+#bossM2{
+  position: absolute;
+  z-index: 10;
+  color: black;
+  left: 235px;
+  top: 80px;
+  opacity: 0;
+  white-space: nowrap;
+
+}
+
+#bossM3{
+  position: absolute;
+  z-index: 10;
+  color: black;
+  left: 220px;
+  top: 80px;
+  opacity: 0;
+  white-space: nowrap;
+
+}
+
+#bossM4{
+  position: absolute;
+  z-index: 10;
+  color: black;
+  left: 220px;
+  top: 80px;
+  opacity: 0;
+  white-space: nowrap;
+
+}
+
+#bossM5{
+  position: absolute;
+  z-index: 10;
+  color: black;
+  left: 220px;
+  top: 80px;
+  opacity: 0;
+  white-space: nowrap;
+
+}
+
+
+#boss1P2{
+  position: absolute;
+  z-index: 0;
+  width: 150px;
+  height: 150px;
+  
+  
+  left: 250px;
+  top: 129.5px;
+
+  opacity: 1;
+  transition: 2s;
+  display: none;
+}
+
+
+
+
+
+#gunBoss {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 250px;
+  top: 180px;
+  z-index: 2;
+  transition: 0.5s;
+  transform: rotate(0deg) scaleX(-1); /* Rotate then flip */
+  display: none;
+
+}
+
+#gunBoss.UpDown1, #explodeBoss.UpDown1{
+  top: 150px;
+}
+
+#gunBoss.UpDown2, #explodeBoss.UpDown2{
+  top: 150px;
+}
+
+#gunBoss.UpDown3, #explodeBoss.UpDown3{
+  top: 230px;
+}
+
+#gunBoss.UpDown4{
+  top: 155px;
+}
+
+#gunBoss.UpDown5{
+  top: 119px;
+  left: 280px;
+}
+
+#gunBoss.fire {
+  transform: rotate(30deg) scaleX(-1); /* Rotate then flip */
+}
+
+#explodeBoss.move1{
+  top: 200px;
+}
+
+#explodeBoss.move2{
+  top: 150px;
+}
+
+#explodeBoss.move3{
+  top: 250px;
+}
+
+#explodeBoss.move4{
+  top: 200px;
+}
+
+
+
+
+
+
+#explodeBoss{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  
+  
+  left: 250px;
+  top: 185px;
+  transition: 0.3s;
+  z-index:10;
+  opacity:0;
+}
+
+
+
+
+#explodeBoss.show{
+ opacity: 1;
+}
+
+#bulletEBoss{
+  height: 5px;
+  width: 15px;
+  background: red;
+  position: absolute;
+  z-index: 3;
+  border: 3px solid whitesmoke;
+  top: 228px;
+  left: 30px;
+  opacity: 1;
+  animation-name: e2Go;
+  display: none;
+}
+
+#bulletBoss.moveB{
+  left: 60px;
+}
+
+
+
+
+
+
+#gunBoss2 {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 300px;
+  top: 240px;
+  z-index: 2;
+  transition: 0.5s;
+  transform: rotate(0deg) scaleX(-1); /* Rotate then flip */
+  display:  none;
+
+}
+
+
+#gunBoss2.fire {
+  transform: rotate(30deg) scaleX
+}
+
+
+#explodeBoss2{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  pointer-events: none;
+  left: 300px;
+  top: 255px;
+  transition: 0.3s;
+  z-index:10;
+  opacity: 0;
+}
+
+
+#explodeBoss2.move11{
+  top: 200px;
+}
+
+#explodeBoss2.move22{
+  top: 150px;
+}
+
+#explodeBoss2.move33{
+  top: 230px;
+}
+
+
+#explodeBoss2.show{
+ opacity: 1;
+}
+
+#explodeBoss2.move44{
+  top: 230px;
+}
+
+#bulletEBoss2{
+  height: 5px;
+  width: 15px;
+  background: red;
+  position: absolute;
+  z-index: 3;
+  border: 3px solid whitesmoke;
+  top: 150px;
+  left: 30px;
+  opacity: 1;
+  animation-name: e2Go;
+  display: none;
+}
+
+#gunBoss2.UpDown11{
+  top: 250px;
+}
+
+#gunBoss2.UpDown22{
+  top: 150px;
+}
+
+#gunBoss2.UpDown33{
+  top: 230px;
+}
+
+#gunBoss2.UpDown44{
+  top: 255px;
+}
+
+
+
+
+#hpDisplay2 {
+  position: absolute;
+  z-index: 100;
+  font-size: 2em;
+  color: red;
+  top: 30px;
+  left: 150px;
+  border: 1px solid;
+  background: black;
+  display: none;
+}
+
+#bossHp2{
+  position: absolute;
+  z-index: 100;
+  top: 25px;
+  left: 87px;
+  display: none;
+}
